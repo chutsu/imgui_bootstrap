@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string>
 
+#include <iostream>
+#include <array>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
@@ -66,29 +69,29 @@ int main(const int, const char**) {
 	bool show_another_window = true;
 	ImVec4 clear_color{0.45f, 0.55f, 0.60f, 1.00f};
 
-	const ImGuiWindowFlags flags = (
-		ImGuiWindowFlags_NoResize
-		| ImGuiWindowFlags_NoCollapse
-		| ImGuiWindowFlags_NoMove
-		| ImGuiWindowFlags_NoBringToFrontOnFocus
-		| ImGuiWindowFlags_NoTitleBar
-		// | ImGuiWindowFlags_MenuBar
-	);
+	const ImGuiWindowFlags flags = (ImGuiWindowFlags_MenuBar);
+	// const ImGuiWindowFlags flags = (
+	// 	ImGuiWindowFlags_NoResize
+	// 	| ImGuiWindowFlags_NoCollapse
+	// 	| ImGuiWindowFlags_NoMove
+	// 	| ImGuiWindowFlags_NoBringToFrontOnFocus
+	// 	| ImGuiWindowFlags_NoTitleBar
+	// 	| ImGuiWindowFlags_MenuBar
+	// );
 
 	// Main loop
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
 
+		ImGui::NewFrame();
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
-
 		bool open = false;
 		float alpha = 0.9f;
-		ImGui::SetNextWindowPos(ImVec2(0, 0));
-		ImGui::SetNextWindowSize(ImVec2(width, height));
+		// ImGui::SetNextWindowPos(ImVec2(0, 0));
+		ImGui::SetNextWindowSize(ImVec2(400, 400));
 		ImGui::Begin("Hello, world!", &open, flags);
 		ImGui::Text("This is some useful text.");
 		ImGui::End();
